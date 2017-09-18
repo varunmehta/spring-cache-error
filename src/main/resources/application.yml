@@ -1,0 +1,26 @@
+server:
+  port: 9191
+  error:
+    include-stacktrace: never
+  compression:
+    enabled: true
+spring:
+  application:
+    name: spring-cache-error
+  datasource:
+    hikari:
+      leak-detection-threshold: 120000
+    url: jdbc:h2:mem:spring-cache-error;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false
+    type: com.zaxxer.hikari.HikariDataSource
+    username: sa
+    password: null
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+  cache:
+    type: redis
+  redis:
+    host: localhost

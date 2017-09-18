@@ -1,0 +1,2 @@
+INSERT INTO user (id, firstname, lastname, email, address1, address2, city, state, country) VALUES(1, "Clark" , "Kent", "superman@dc.com", "SmallVille", "Village", "Smallville", "KS", "US")
+INSERT INTO user (id, firstname, lastname, email, address1, address2, city, state, country) VALUES(2, "Bruce" , "Wayne", "batman@dc.com", "Gotham", "City", "Chicago", "IL", "US")
