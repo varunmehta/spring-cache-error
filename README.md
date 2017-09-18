@@ -1,6 +1,12 @@
 # Spring Cache REDIS error 
 
-When using spring-data-redis with spring-data projections thrown an error 
+When adding ```@Caching``` on a Repository which is returning a projection and is optimized using ```@Query```, spring-data-redis ```JdkSerializationRedisSerializer``` is not able to serialize the AopProxy returned as part of the Repository resultset.    
+
+ * Using Projections, by itself works fine
+ * Using Query by itself works fine.
+
+Using them together fails the application.
+
 
 ```org.springframework.data.redis.serializer.SerializationException: Cannot serialize; nested exception is org.springframework.core.serializer.support.SerializationFailedException: Failed to serialize object using DefaultSerializer; nested exception is java.io.NotSerializableException: org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor
   at org.springframework.data.redis.serializer.JdkSerializationRedisSerializer.serialize(JdkSerializationRedisSerializer.java:93)

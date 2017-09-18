@@ -2,13 +2,13 @@ package com.github.varunmehta.repos;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.Assert;
 
 import com.github.varunmehta.model.ConcreteIdKey;
 import com.github.varunmehta.model.ProjectionIdKey;
@@ -31,25 +31,29 @@ public class UserRepositoryTests {
   @Test
   public void testConcrete() {
     List<ConcreteIdKey> ids = userRepository.findsConcretesByProjectedColumns();
-    Assert.notEmpty(ids, "No users found in concrete");
+    Assert.assertNotNull(ids);
+    Assert.assertTrue(ids.size() == 2);   
   }
 
   @Test
   public void testProjected() {
     List<ProjectionIdKey> ids = userRepository.findsProjectedByProjectedColumns();
-    Assert.notEmpty(ids, "No users found in projection");
+    Assert.assertNotNull(ids);
+    Assert.assertTrue(ids.size() == 2);   
   }
 
   @Test
   public void testCachedConcrete() {
     List<ConcreteIdKey> ids = userRepository.findsCachedConcretesByProjectedColumns();
-    Assert.notEmpty(ids, "No users found in concrete");
+    Assert.assertNotNull(ids);
+    Assert.assertTrue(ids.size() == 2);   
   }
 
   @Test
   public void testCachedProjected() {
     List<ProjectionIdKey> ids = userRepository.findsCachedProjectedByProjectedColumns();
-    Assert.notEmpty(ids, "No users found in projection");
+    Assert.assertNotNull(ids);
+    Assert.assertTrue(ids.size() == 2);   
   }
 
 }
